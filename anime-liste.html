@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ff0000;
+        }
+
+        .anime-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .anime-item {
+            flex: 0 0 calc(33.33% - 10px); /* 3 éléments par ligne avec espacement */
+            background-color: #222;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .anime-image {
+            max-width: 100px;
+            max-height: 150px;
+            margin: 10px auto 10px; /* Ajout d'une marge en bas pour l'image */
+        }
+
+        a {
+            text-decoration: none;
+            color: #ff0000;
+        }
+
+        .search-input {
+            width: 95%;
+            padding: 10px;
+            background-color: #000;
+            color: #ff0000;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Liste d'anime</h1>
+        <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un anime...">
+        <div class="anime-list">
+            <div class="anime-item">
+                <img class="anime-image" src="https://scantrad-vf.co/wp-content/uploads/2023/02/mashle_13249-193x278-1-193x278.jpg" alt="Mashle" />
+                <a href="anime/Mashle.html"><strong>Mashle</strong></a>
+                <p style="text-align: left; padding-left: 10px;"><b>Note</b> :  4.6/5<br><b>Statut</b> :  EN COURS<br><b>Genre</b> : Action, Comédie, Fantastique</p>
+            </div>
+            <div class="anime-item">
+                <img class="anime-image" src="https://mangatr.net/wp-content/uploads/2021/10/One-Punch-Man-193x278.jpg" alt="One Punch man" />
+                <a href="anime/One_Punch_Man.html"><strong>One Punch man</strong></a>
+                <p style="text-align: left; padding-left: 10px;"><b>Note</b> :  4.1/5<br><b>Statut</b> :  TERMINÉ<br><b>Genre</b> : Action, Comédie, Surnaturel</p>
+            </div>
+            <div class="anime-item">
+                <img class="anime-image" src="https://dgtread.com/wp-content/uploads/2021/09/Assassination-classroom-2-193x278.jpg" alt="Assassination classroom" />
+                <a href="anime/Assassination_classroom.html"><strong>Assassination classroom</strong></a>
+                <p style="text-align: left; padding-left: 10px;"><b>Note</b> :  3.9/5<br><b>Statut</b> :  TERMINÉ<br><b>Genre</b> : Action, Comédie, Surnaturel</p>
+            </div>
+            <div class="anime-item">
+                <img class="anime-image" src="https://mangaleku.com/wp-content/uploads/2023/03/large_1594v8-193x278.jpg" alt="Pluto" />
+                <a href="anime/Pluto.html"><strong>Pluto</strong></a>
+                <p style="text-align: left; padding-left: 10px;"><b>Note</b> :  4.7/5<br><b>Statut</b> :  EN COURS<br><b>Genre</b> : Action, Mystère, Sci-Fi</p>
+            </div>
+            <!-- Ajoutez plus d'anime ici -->
+        </div>
+    </div>
+
+    <script>
+        // Fonction de recherche d'anime
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+            const animeItems = document.querySelectorAll('.anime-item');
+
+            animeItems.forEach(function(animeItem) {
+                const animeName = animeItem.querySelector('strong').textContent.toLowerCase();
+                if (animeName.includes(searchValue)) {
+                    animeItem.style.display = 'flex';
+                } else {
+                    animeItem.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
